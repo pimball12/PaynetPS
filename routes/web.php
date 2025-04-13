@@ -1,7 +1,16 @@
 <?php
 
 use App\Http\Controllers\Auth\ResetPasswordController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
+Route::middleware(['web', 'auth:sanctum'])->group(function () {
+
+    Route::get('/home', function (Request $request) {
+
+        return view('home');
+    })->name('home');
+});
 
 Route::get('/', function () {
 
@@ -24,8 +33,3 @@ Route::get('/reset-password/{token}', function (string $token) {
 
 Route::post('/reset-password', [ResetPasswordController::class, 'reset'])
     ->name('password.update');
-
-Route::get('/home', function () {
-
-    return view('home');
-})->name('home');

@@ -6,7 +6,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-16">
                     <div class="flex items-center">
-                        <span class="text-xl font-semibold text-gray-900">CEP Authentication</span>
+                        <span class="text-xl font-semibold text-gray-900">Paynet Autenticação</span>
                     </div>
                     <div class="flex items-center">
                         <button onclick="logout()"
@@ -54,12 +54,6 @@
         document.addEventListener('DOMContentLoaded', function() {
 
             const token = sessionStorage.getItem('auth_token');
-
-            if (!token) {
-
-                window.location.href = '/';
-                return;
-            }
 
             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 

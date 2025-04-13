@@ -53,7 +53,7 @@
             axios.post('/reset-password', formData)
                 .then(response => {
 
-                    alert(response.data.message);
+                    alert('Senha resetada com sucesso');
                     window.location.href = '/';
                 })
                 .catch(error => {

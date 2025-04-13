@@ -16,7 +16,7 @@ class LoginController extends Controller
             return response()->json(['message' => 'Credenciais inválidas'], 401);
         }
 
-        // $request->session()->regenerate();
+        $request->session()->regenerate();
 
         $token = $request->user()->createToken('auth_token')->plainTextToken;
 

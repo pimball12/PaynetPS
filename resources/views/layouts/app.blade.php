@@ -55,14 +55,7 @@
         document.addEventListener('DOMContentLoaded', function() {
 
             const token = sessionStorage.getItem('auth_token');
-
-            if (token && !['/','/register','/forgot-password'].includes(window.location.pathname)) {
-
-                axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-            } else if (!token && window.location.pathname === '/home') {
-
-                window.location.href = '/';
-            }
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
         });
     </script>
 </body>
