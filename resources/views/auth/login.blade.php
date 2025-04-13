@@ -49,7 +49,14 @@
             axios.post('/api/login', {
 
                     email: email,
-                    password: password
+                    password: password,
+
+                }, {
+
+                    headers: {
+
+                        withCredentials: true
+                    }
                 })
                 .then(response => {
 

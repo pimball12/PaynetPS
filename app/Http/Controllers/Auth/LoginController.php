@@ -13,19 +13,19 @@ class LoginController extends Controller
     {
         if (!Auth::attempt($request->only('email', 'password'))) {
 
-            return response()->json([
-
-                'message' => 'Credenciais inválidas'
-            ], 401);
+            return response()->json(['message' => 'Credenciais inválidas'], 401);
         }
 
-        $user = Auth::user();
-        $token = $user->createToken('auth_token')->plainTextToken;
+        // $request->session()->regenerate();
+
+        $token = $request->user()->createToken('auth_token')->plainTextToken;
 
         return response()->json([
 
             'access_token' => $token,
             'token_type' => 'Bearer',
+            'session_id' => session()->getId(),
+            'user' => $request->user()->only('id', 'name', 'email')
         ]);
     }
 }
