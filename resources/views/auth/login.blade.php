@@ -57,6 +57,8 @@
                 })
                 .catch(error => {
 
+                    console.log(error);
+
                     if (error.response && error.response.status === 401) {
 
                         showError('passwordError', 'Credenciais inválidas');
@@ -67,7 +69,7 @@
                         if (errors.password) showError('passwordError', errors.password[0]);
                     } else {
 
-                        alert('Ocorreu um erro ao fazer login');
+                        alert('Ocorreu um erro ao fazer login', error);
                     }
                 });
         });

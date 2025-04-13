@@ -52,15 +52,15 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Obter o token do localStorage
-            const token = localStorage.getItem('auth_token');
+
+            const token = sessionStorage.getItem('auth_token');
 
             if (!token) {
+
                 window.location.href = '/';
                 return;
             }
 
-            // Configurar o token no cabeçalho das requisições
             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
             axios.get('/api/home')
@@ -68,7 +68,6 @@
                     const users = response.data;
                     const tbody = document.querySelector('#usersTable tbody');
 
-                    // Limpar tabela antes de adicionar novos dados
                     tbody.innerHTML = '';
 
                     users.forEach(user => {
@@ -95,11 +94,13 @@
                     });
                 })
                 .catch(error => {
+
                     if (error.response && error.response.status === 401) {
-                        // Token inválido ou expirado
-                        localStorage.removeItem('auth_token');
+
+                        sessionStorage.removeItem('auth_token');
                         window.location.href = '/';
                     } else {
+
                         console.error('Erro ao carregar usuários:', error);
                         alert('Erro ao carregar usuários');
                     }
@@ -107,22 +108,24 @@
         });
 
         function logout() {
-            // Obter o token do localStorage
-            const token = localStorage.getItem('auth_token');
+
+            const token = sessionStorage.getItem('auth_token');
 
             if (token) {
-                // Opcional: Chamar endpoint de logout se necessário
+
                 axios.post('/api/logout', {}, {
+
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
                 }).finally(() => {
-                    // Remover token e redirecionar em qualquer caso
-                    localStorage.removeItem('auth_token');
+
+                    sessionStorage.removeItem('auth_token');
                     window.location.href = '/';
                 });
             } else {
-                localStorage.removeItem('auth_token');
+
+                sessionStorage.removeItem('auth_token');
                 window.location.href = '/';
             }
         }
