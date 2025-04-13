@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  app:
+    image: laravelsail/php83-composer
+    container_name: paynetps-app
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mailhog
+    command: >
+      sh -c "composer install &&
+             php artisan serve --host=0.0.0.0 --port=8000"
+    environment:
+      MAIL_MAILER: smtp
+      MAIL_HOST: mailhog
+      MAIL_PORT: 1025
+      MAIL_USERNAME: null
+      MAIL_PASSWORD: null
+      MAIL_ENCRYPTION: null
+      DB_CONNECTION: sqlite
+      DB_DATABASE: /var/www/database/database.sqlite
+
+  mailhog:
+    image: mailhog/mailhog
+    container_name: mailhog
+    ports:
+      - "1025:1025" # SMTP
+      - "8025:8025" # Web UI
+
+volumes:
+  sqlite_data:
