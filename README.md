@@ -21,28 +21,29 @@
 
 <h3>Front-End</h3>
 
-<pre>GET    /</pre>
 <p>Tela de login.</p>
-<pre>GET    /register</pre>
+<pre>GET    /</pre>
 <p>Usada para que um novo usuário se cadastre.</p>
-<pre>GET    /forgot-password</pre>
+<pre>GET    /register</pre>
 <p>Possibilita o usuário a enviar um email para resetar a senha.</p>
-<pre>GET    /reset-password</pre>
+<pre>GET    /forgot-password</pre>
 <p>Rota que possibilita o usuário a enviar um email para resetar a senha.</p>
-<pre>GET    /home</pre>
+<pre>GET    /reset-password</pre>
 <p>Lista os usuários, protegida pela autenticação.</p>
+<pre>GET    /home</pre>
 
 <h3>Back-End</h3>
-<pre>GET|HEAD   /api/cep/{cep}</pre>
 <p>Faz a ponte para a api de CEP da ViaCep.</p>
-<pre>POST       /api/forgot-password</pre>
+<pre>GET|HEAD   /api/cep/{cep}</pre>
 <p>Envia um email para resetar a senha.</p>
-<pre>GET|HEAD   /api/home</pre>
+<pre>POST       /api/forgot-password</pre>
 <p>Faz a listagem dos usuários.</p>
-<pre>POST       /api/login</pre>
+<pre>GET|HEAD   /api/home</pre>
 <p>Faz a autenticação utilizando login e senha.</p>
-<pre>POST       /api/logout</pre>
+<pre>POST       /api/login</pre>
 <p>Desloga do sistema.</p>
+<pre>POST       /api/logout</pre>
+<p>Registra um novo usuario</p>
 <pre>POST       /api/register</pre>
 <pre>// Ex. Req:
 {
@@ -58,7 +59,7 @@
     "zip_code": "65074-247"
 }
 </pre>
-<p>Registra um novo usuario</p>
+<p>Reseta a senha de usuário com base no token enviado pelo email.</p>
 <pre>POST       /api/reset-password</pre>
 <pre>Ex. Req:
 {
@@ -68,4 +69,3 @@
     "token": "c7c291a7e05879b5a174d9010414faf3b3e3ae82d908b084af3b03800085943c"
 }
 </pre>
-<p>Reseta a senha de usuário com base no token enviado pelo email.</p>
