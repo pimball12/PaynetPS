@@ -18,4 +18,12 @@ class ForgotPasswordRequest extends FormRequest
             'email' => 'required|string|email',
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+
+            '*' => 'Erro de validação. Verifique o campo.',
+        ];
+    }
 }

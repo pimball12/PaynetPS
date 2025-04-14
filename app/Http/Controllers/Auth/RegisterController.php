@@ -7,6 +7,7 @@ use App\Http\Requests\Auth\RegisterRequest;
 use App\Models\User;
 use App\Services\Cep\CepServiceInterface;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
@@ -34,6 +35,9 @@ class RegisterController extends Controller
                 'state' => $cepData['uf'],
                 'zip_code' => $request->zip_code,
             ]);
+
+            Auth::attempt($request->only('email', 'password'));
+            $request->session()->regenerate();
 
             $token = $user->createToken('auth_token')->plainTextToken;
 

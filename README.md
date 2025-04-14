@@ -9,7 +9,7 @@
 <p>3) Entre na pasta do projeto e execute o seguinte comando:</p>
 <pre>> docker-compose up -d</pre>
 <p>4) Execute o seguinte comando:
-<pre>> docker exec -it paynetps-app bash</pre>
+<pre>> docker exec -u root -it paynetps-app bash</pre>
 <p>5) Após isso, você estará dentro da pasta no escopo do container. Execute em sequência os seguintes comandos:</p>
 <pre>> composer install
 > cp .env.example .env

@@ -43,19 +43,21 @@
                             Buscar
                         </button>
                     </div>
-                    <p id="zipCodeError" class="text-red-500 text-sm mt-1 hidden error-message"></p>
+                    <p id="zip_codeError" class="text-red-500 text-sm mt-1 hidden error-message"></p>
                 </div>
 
                 <div class="mb-4">
                     <label for="street" class="block text-gray-700 mb-2">Rua</label>
                     <input type="text" id="street" name="street"
                         class="w-full px-3 py-2 border rounded-lg">
+                    <p id="streetError" class="text-red-500 text-sm mt-1 hidden error-message"></p>
                 </div>
 
                 <div class="mb-4">
                     <label for="neighborhood" class="block text-gray-700 mb-2">Bairro</label>
                     <input type="text" id="neighborhood" name="neighborhood"
                         class="w-full px-3 py-2 border rounded-lg">
+                    <p id="neighborhoodError" class="text-red-500 text-sm mt-1 hidden error-message"></p>
                 </div>
 
                 <div class="mb-4">
