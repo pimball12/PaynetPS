@@ -48,14 +48,14 @@
 
                 <div class="mb-4">
                     <label for="street" class="block text-gray-700 mb-2">Rua</label>
-                    <input type="text" id="street" name="street" readonly
-                        class="w-full px-3 py-2 border rounded-lg bg-gray-100">
+                    <input type="text" id="street" name="street"
+                        class="w-full px-3 py-2 border rounded-lg">
                 </div>
 
                 <div class="mb-4">
                     <label for="neighborhood" class="block text-gray-700 mb-2">Bairro</label>
-                    <input type="text" id="neighborhood" name="neighborhood" readonly
-                        class="w-full px-3 py-2 border rounded-lg bg-gray-100">
+                    <input type="text" id="neighborhood" name="neighborhood"
+                        class="w-full px-3 py-2 border rounded-lg">
                 </div>
 
                 <div class="mb-4">
