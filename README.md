@@ -13,6 +13,7 @@
 <p>5) Após isso, você estará dentro da pasta no escopo do container. Execute em sequência os seguintes comandos:</p>
 <pre>> composer install
 > cp .env.example .env
+> php artisan key:generate
 > php artisan migrate:fresh --seed</pre>
 <p>Pronto! Agora é só acessar o app através de sua <a href="http://localhost:8000/">rede local</a>.</p>
 
