@@ -50,7 +50,7 @@
                 password_confirmation: document.getElementById('password_confirmation').value
             };
 
-            axios.post('/reset-password', formData)
+            axios.post('/api/reset-password', formData)
                 .then(response => {
 
                     alert('Senha resetada com sucesso');
